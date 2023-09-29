@@ -2,6 +2,78 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setup Step
+
+### `install prettier`
+
+```
+npm install --save-dev --save-exact prettier
+```
+
+### `create file .prettierrc.json`
+
+```
+{}
+```
+
+### `create file .prettierignore`
+
+```
+dist
+build
+coverage
+```
+
+### `install husky`
+
+```
+npm install --save-dev husky lint-staged
+```
+
+### `init husky config`
+
+```
+npx husky install
+```
+
+### `add new scripts command`
+
+```
+npm pkg set scripts.prepare="husky install"
+```
+
+### `config pre-commit`
+
+```
+npx husky add .husky/pre-commit "npx lint-staged"
+```
+
+### `add lint-staged scripts command`
+
+```
+"lint-staged": {
+  "**/*": "prettier --write --ignore-unknown"
+}
+```
+
+### `install eslint prettier`
+
+```
+npm install --save-dev eslint-config-prettier
+```
+
+### `add prettier to the eslint config in package.json`
+
+```
+"eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "prettier"
+    ]
+  },
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
